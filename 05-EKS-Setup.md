@@ -31,6 +31,19 @@ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/d
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 ```
+
+###if not worked the above command apply the below to setup eksctl###
+```
+curl --silent --location "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+```
+below is to troublushoot if not worked the above
+kubectl get nodes
+eksctl create cluster --name dev-cluster --region ap-south-1
+cat ~/.kube/config
+aws eks update-kubeconfig --name dev-cluster --region ap-south-1
+```
 # Step - 2 : Create IAM role & attach to EKS Management Host #
 
 1) Create New Role using IAM service ( Select Usecase - ec2 ) 	
@@ -76,5 +89,5 @@ eksctl create cluster --name devops-cluster4 --region ap-south-1 --node-type t2.
 ## Step - 4 : After your practise, delete Cluster and other resources we have used in AWS Cloud to avoid billing ##
 
 ```
-eksctl delete cluster --name ashokit-cluster4 --region ap-south-1
+eksctl delete cluster --name dev-cluster1 --region ap-south-1
 ```
