@@ -38,7 +38,8 @@ curl --silent --location "https://github.com/eksctl-io/eksctl/releases/latest/do
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 ```
-below is to troublushoot if not worked the above
+####below is to troublushoot if not worked the above
+```
 kubectl get nodes
 eksctl create cluster --name dev-cluster --region ap-south-1
 cat ~/.kube/config
